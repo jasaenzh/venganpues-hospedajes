@@ -9,7 +9,8 @@ function HomePage() {
   useEffect(() => {
     (async () => {
       const session = await getSession()
-      setUser(session.user)
+      console.log(session.user)
+      setUser(session?.user)
     })();
   }, [])
 
@@ -17,11 +18,11 @@ function HomePage() {
     <div>
       <h1>{user?.name}</h1>
       <p>{user?.email}</p>
-      {/* {user?.image ? (
+      {user?.image ? (
         <Image src={user.image} alt={user.name || ''} width={40} height={40} />
       ) : (
         <p>No hay imagen disponible</p>
-      )} */}
+      )}
     </div>
   )
 }
